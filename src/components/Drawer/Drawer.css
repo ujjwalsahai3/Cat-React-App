@@ -1,0 +1,26 @@
+
+.drawer-container{ 
+    position: fixed; 
+    left:5px;
+    top: 12%;
+    z-index: 100
+}
+
+.drawer{
+    background: #f0f0f0;
+    margin-top: 2px 0;
+}
+
+.listings{
+    border-bottom:1px solid #dedede;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    padding:2px;
+}
+
+.listings:hover{
+    font-style: italic;
+    color: #252525;
+    font-weight: bold
+}

@@ -1,0 +1,59 @@
+
+.breeds{
+   
+    float: left;
+}
+.breeds > h5{
+    text-align: center;
+    padding-top: 10px;
+}
+.breeds-container{
+    padding-left: 10px;
+    overflow: auto;
+    max-height:580px;
+    min-height: 490px;
+    height: 50%;
+}
+
+.breed-search{
+    padding-left: 10px;
+    margin-bottom: 10px
+}
+
+.breed-search > input[type=text]{
+    width:100%;
+    padding: 10px;
+    border-radius: 10px;
+} 
+
+.breeds-listing{
+    padding:10px;
+    cursor: pointer;
+    background: #fff;
+    border-bottom: 1px solid #252222
+}
+
+.breeds-listing:hover{
+    color: #252222;
+    background: #feeefe
+}
+
+.breed-info{
+    float:right;
+}
+
+.breed-info-img{
+    height:350px;
+    border-radius: 15px
+}
+
+.breed-info-heading{
+    text-align: center;
+    padding:10px
+}
+
+.breed-info > p{
+    margin-left: 30px;
+}
+
+
