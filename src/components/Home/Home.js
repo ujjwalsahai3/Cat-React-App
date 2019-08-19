@@ -72,21 +72,6 @@ export default class Home extends React.Component{
     }
 
     render(){
-        const reducer = (state,action) =>{
-            if(action.type === "GetBreeds")
-                return action.payload
-            return state
-        }
-
-        const store=createStore(reducer, 'Cats')
-        
-        
-        store.subscribe(()=>{
-            console.log(store.getState())
-        })
-
-        store.dispatch({type:'GetBreeds', payload: this.state.allbreeds})
-
         const loadingContent=<Spinner animation="border" variant="warning" ><span className="sr-only">Loading...</span></Spinner>
         const breedContent= this.state.isLoadingBreed ? loadingContent : <BreedSideBar breeds={this.state.breeds} viewcat={this.getCatbyId} />
         
