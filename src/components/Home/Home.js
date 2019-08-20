@@ -6,7 +6,6 @@ import BreedInformation from './BreedInformation'
 import BreedSearch from './BreedSearch'
 import SearchByAlphabets from './SearchByAlphabets'
 import Drawer from '../Drawer/Drawer'
-import {createStore} from 'redux'
 import './Home.css'
 
 export default class Home extends React.Component{

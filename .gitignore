@@ -3,3 +3,6 @@ package-lock.json
 
 # Ignore folder node_modules
 node_modules/
+
+# Ignore folder build
+build/
