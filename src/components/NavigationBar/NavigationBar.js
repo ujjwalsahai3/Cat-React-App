@@ -8,6 +8,7 @@ export default function NavigationBar(){
             <Navbar.Brand href="/">Cat App</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/Dogs">Dogs</Nav.Link>
             </Nav>
         </Navbar>
     );
