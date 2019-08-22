@@ -1,8 +1,10 @@
 import React from 'react'
 import {Image, Col} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import RandomColorHOC from '../../hoc/RandomColorHOC'
 import './Home.css'
 
-export default function BreedInformation(props){
+function BreedInformation(props){
     return(
         <div className='breed-info'>
             <Col className='breed-info-heading'>
@@ -15,7 +17,10 @@ export default function BreedInformation(props){
                 <p><b>Origin: </b>{props.selectedCat.origin}</p>
                 <p><b>Description: </b>{props.selectedCat.description}</p>
                 <p><b>Temperament: </b>{props.selectedCat.temperament}</p>
+                <Link to={"/Cat/"+ props.selectedCat.id} >more information</Link>
             </Col>
         </div>
     )
 }
+
+export default RandomColorHOC(BreedInformation)
