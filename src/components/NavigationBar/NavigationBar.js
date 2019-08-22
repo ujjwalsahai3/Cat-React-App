@@ -14,7 +14,7 @@ function NavigationBar(props){
         <Navbar bg="primary" variant="dark">
             <Navbar.Brand href="/">Cat App</Navbar.Brand>
             <Nav className="mr-auto">
-                <NavLink className='nav-link' to="/">Home</NavLink>
+                <NavLink className='nav-link' to="/">Cats</NavLink>
                 <NavLink className='nav-link' to="/Dogs">Dogs</NavLink>
             </Nav>
         </Navbar>
