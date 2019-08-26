@@ -5,12 +5,7 @@ const initialState={
     isLoading: true
 }
 
-//    return Object.assign({}, state, {
-//        breeds: state.breeds.concat(action.payload)
-//    })
-
 const dogReducer = (state= initialState, action) =>{
-    console.log(action.payload)
     switch(action.type){
         case Dogs.SETDOGSDATA: {
             return{

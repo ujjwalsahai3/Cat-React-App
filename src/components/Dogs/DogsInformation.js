@@ -2,43 +2,51 @@ import React from 'react'
 import {Row,Card} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
-const DogsInformation = (props) =>{
-    const breeds= dogsDataHandler(props.dogsData.breeds)
+const DogsInformation = ({dogsData}) =>{
+    const breeds= dogsDataHandler(dogsData)
     const style={
         padding:10,
         textTransform: 'capitalize'
     }
-    return (
-        <Row>
-            {breeds.map(dogs => <Card key={dogs.id}>
-                <Card.Title style={style}>{dogs.name}</Card.Title>
-            </Card>
+
+    if(breeds.length>0){
+        return (
+            <Row>
+                {breeds.map(dogs => {
+                    let colorsArray = ['primary','secondary', 'success', 'info', 'danger', 'warning', 'info']
+                    let className = "text-" + colorsArray[Math.floor(Math.random() * 6)]
+                    return (
+                        <Card key={dogs.id}>
+                            <Card.Title style={style} className={className}>{dogs.name}</Card.Title>
+                        </Card>
+                    )}
                 )}
-        </Row>
-    )
+            </Row>
+        )
+    } else {
+        return (<em>No Dogs found</em>)
+    }
+}
+
+
+
+const dogsDataHandler = (breedData) => {
+    let breeds = []
+    for (let index in breedData) {
+        if (breedData[index].length > 0) {
+            breedData[index].forEach(element => {
+                breeds.push({id: (breeds.length + 1),name: element + " " + index})
+            });
+        } else 
+            breeds.push({id: (breeds.length + 1), name: index})
+    }
+    return breeds;
 }
 
 const mapStatetoProps = (state) => {
     return {
-        dogsData: state.dogs
+        dogsData: state.dogs.breeds
     }
-}
-
-const dogsDataHandler = (breedData) => {
-    let breeds = []
-    let count=1;
-    for (let index in breedData) {
-        if (breedData[index].length > 0) {
-            breedData[index].forEach(element => {
-                breeds.push({id: count,name: element + " " + index})
-                count ++
-            });
-        } else {
-            breeds.push({id: count, name: index})
-            count ++
-        }
-    }
-    return breeds;
 }
 
 export default connect(mapStatetoProps)(DogsInformation)
