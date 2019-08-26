@@ -1,3 +1,3 @@
 export const Dogs = {
-    DOGSALLBREEDS : 'DOGSALLBREEDS'
+    SETDOGSDATA : 'SETDOGSDATA'
 };

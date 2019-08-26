@@ -1,9 +1,10 @@
 import { Dogs } from '../constants/action-types'
 
-export const dogsAllBreeds = breedsObj =>{
+export const setDogsData = breedsObj =>{
     return {
-        type : Dogs.DOGSALLBREEDS,
+        type : Dogs.SETDOGSDATA,
         payload: breedsObj
     }
 }
+
 

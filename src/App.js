@@ -9,9 +9,11 @@ export default function App(){
     return(
         <Layout>
             <Switch>
+            
                 <Route exact path='/' component={Home} />
                 <Route path='/Dogs' component={Dogs} />
-                <Route path='/Cat/:catId' component={Cat} />
+                <Route path='/:catId' component={Cat} />
+                
             </Switch>
         </Layout>
     )

@@ -1,37 +1,49 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import appStore from '../../store'
-import { dogsAllBreeds } from "../../actions/dogActions"
+import {setDogsData } from "../../actions/dogActions"
+import {connect} from 'react-redux'
+import {Spinner} from 'react-bootstrap'
+import DogsInformation from './DogsInformation'
 
-export default class Dogs extends Component{
+class Dogs extends Component{
     
     componentDidMount(){
-        let breeds=[]
+        setTimeout(() => {
+            this.getDogsData() 
+        }, 3000)
+    }
+
+    getDogsData = () =>{
         axios.get('https://dog.ceo/api/breeds/list/all')
         .then(result => {
-            const breedData=result.data.message;
-            for (let index in breedData) {
-                if(breedData[index].length > 0){
-                    breedData[index].forEach(element => {
-                        breeds.push(element+" "+ index)
-                    });
-                } else {
-                    breeds.push(index)
-                }
-            }
-        })
-        appStore.dispatch(dogsAllBreeds({ breeds:breeds }) )
+                this.props.setDogsBreeds(result.data.message)
+            })
     }
 
     render(){
-        appStore.subscribe(() => {
-            const dogs=appStore.getState().dogs;
-            console.log(dogs)
-        })
-        
+        const dogsData= this.props.dogsData;
+        const content = dogsData.isLoading? (
+            <Spinner animation="border" variant="warning" ><span className="sr-only">Loading...</span></Spinner>
+        ): ( 
+            <DogsInformation />
+        )
         return (
-            <h1>abx</h1>
+            <h1>{content}</h1>
         )
     }
     
 }
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        setDogsBreeds : (breeds) =>{ dispatch(setDogsData(breeds)) }
+    }
+}
+
+const mapStateToProps = (state) =>{
+    return {
+        dogsData: state.dogs
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Dogs)

@@ -31,7 +31,8 @@ class Cat extends Component {
 
         const content = this.state.isLoading? (
             <Spinner animation="border" variant="warning" ><span className="sr-only">Loading...</span></Spinner>
-        ) : (
+        ) : 
+        (
             <>
                 <Col  md={12} lg={12} xl={12} sm={12} className='text-center'>
                     <h3>

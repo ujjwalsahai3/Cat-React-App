@@ -17,7 +17,7 @@ function BreedInformation(props){
                 <p><b>Origin: </b>{props.selectedCat.origin}</p>
                 <p><b>Description: </b>{props.selectedCat.description}</p>
                 <p><b>Temperament: </b>{props.selectedCat.temperament}</p>
-                <Link to={"/Cat/"+ props.selectedCat.id} >more information</Link>
+                <Link style={{float:'right'}} to={"/"+ props.selectedCat.id} >more information...</Link>
             </Col>
         </div>
     )
